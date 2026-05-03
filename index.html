@@ -1,29 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flashcard App</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flashcard App</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <div class="container">
-        <!-- You will not need to add any new cards, 
-        this div.flashcard is the only flashcard container you need
-        just fill in what the user should see into the p#card-content -->
-        <div class="flashcard" id="flashcard">
-            <p id="card-content"></p>
-        </div>
-        <div class="buttons">
-            <button id="prev-btn">Previous</button>
-            <button id="next-btn">Next</button>
-        </div>
-        <div class="add-card-form">
-            <input type="text" id="new-term" placeholder="Enter term">
-            <input type="text" id="new-definition" placeholder="Enter definition">
-            <button id="add-card-btn">Add Card</button>
-        </div>
-    </div>
-    <script src="script.js"></script>
+  <main class="app-shell">
+    <header class="hero">
+      <p class="eyebrow">Study smarter</p>
+      <h1>Flashcard App</h1>
+      <p>Create flashcards, review terms, track progress, and save your study set locally in the browser.</p>
+    </header>
+
+    <section class="controls" aria-label="Study controls">
+      <label for="category-filter">Category</label>
+      <select id="category-filter">
+        <option value="all">All Cards</option>
+      </select>
+      <button id="shuffle-btn" type="button">Shuffle</button>
+      <button id="reset-progress-btn" type="button" class="secondary">Reset Progress</button>
+    </section>
+
+    <section class="stats" aria-label="Study statistics">
+      <article>
+        <span>Total Cards</span>
+        <strong id="total-count">0</strong>
+      </article>
+      <article>
+        <span>Reviewed</span>
+        <strong id="reviewed-count">0</strong>
+      </article>
+      <article>
+        <span>Mastered</span>
+        <strong id="mastered-count">0</strong>
+      </article>
+      <article>
+        <span>Progress</span>
+        <strong id="progress-percent">0%</strong>
+      </article>
+    </section>
+
+    <section class="study-area" aria-label="Flashcard reviewer">
+      <div class="flashcard" id="flashcard" role="button" tabindex="0" aria-label="Click to flip flashcard">
+        <p id="card-label">Term</p>
+        <p id="card-content"></p>
+        <small>Click card to flip</small>
+      </div>
+
+      <div class="card-meta">
+        <span id="card-position">Card 0 of 0</span>
+        <span id="card-category"></span>
+      </div>
+
+      <div class="buttons">
+        <button id="prev-btn" type="button">Previous</button>
+        <button id="mastered-btn" type="button">Mark Mastered</button>
+        <button id="next-btn" type="button">Next</button>
+      </div>
+    </section>
+
+    <section class="add-card-panel" aria-label="Add a new flashcard">
+      <h2>Add a Card</h2>
+      <div class="form-grid">
+        <input type="text" id="new-term" placeholder="Enter term" />
+        <input type="text" id="new-definition" placeholder="Enter definition" />
+        <input type="text" id="new-category" placeholder="Category, e.g. Web Dev" />
+        <button id="add-card-btn" type="button">Add Card</button>
+      </div>
+      <p id="status-message" aria-live="polite"></p>
+    </section>
+
+    <section class="card-list-panel" aria-label="Flashcard list">
+      <h2>Current Deck</h2>
+      <div id="card-list" class="card-list"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
