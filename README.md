@@ -70,7 +70,3 @@ https://jacobdemory.github.io/flashcard-app/
 - Add spaced repetition scheduling
 - Export and import flashcard decks
 - Add dark/light theme toggle
-
----
-
-Built with ❤️ by Jacob
