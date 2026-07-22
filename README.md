@@ -5,7 +5,6 @@ A browser-based study tool for creating, reviewing, and organizing flashcards. A
 ---
 
 ## Features
-Recent additions are in **bold**
 - Click a flashcard to flip between the term and definition
 - Navigate through cards with Previous and Next buttons
 - Add custom flashcards with terms, definitions, and categories
